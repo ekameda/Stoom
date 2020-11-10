@@ -1,0 +1,125 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>        
+    </head>
+    <body>
+
+        <div class="pusher">
+            <div class="ui inverted vertical masthead segment">
+
+                <div class="ui container">
+                    <div class="ui large secondary inverted pointing menu">
+
+                        <div class="right item">
+                            <div class="item">
+                                <div class="ui transparent inverted icon input" >
+                                    <label> Register  STOOM </label>
+                                </div>
+                            </div>
+                            <td>  <br/>   </td>
+
+                            <form class="form-horizontal" method="POST" th:action="@{/salvar}" th:object="${use}">
+
+                                <div class="ui field">
+                                    <label> Sreet Name: </label>
+                                    <input type="text" name="StreetName" placeholder="StreetName..." th:maxlength="100" size="100" required="true"/>
+                                </div>
+                                
+                                <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Nunber: </label>
+                                    <input type="number" name="number" placeholder="Nunber:..." th:maxlength="100" size="100" required="true"/>
+                                </div>
+                                
+                                <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Complement </label>
+                                    <input type="text" name="complement" placeholder="Complement..." th:maxlength="100" size="100" />
+                                </div>  
+                                       
+                                <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Neighbourhood: </label>
+                                    <input type="text" name="neighbourhood" placeholder="Neighbourhood..." th:maxlength="100" size="100" required="true"/>
+                                </div>
+                                
+                                 <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> City: </label>
+                                    <input type="text" name="City" placeholder="City..." th:maxlength="100" size="100" required="true"/>
+                                </div>
+                                 
+                                 <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> State: </label>
+                                    <input type="text" name="State" placeholder="State..." th:maxlength="100" size="100" required="true"/>
+                                </div>
+                                 
+                                 <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Country: </label>
+                                    <input type="text" name="Country" placeholder="Country..." th:maxlength="100" size="100" required="true"/>
+                                </div>
+                                 
+                                  <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> ZipCode: </label>
+                                    <input type="text" name="ZipCode" placeholder="ZipCode..." th:maxlength="100" size="100" required="true"/>
+                                </div>
+                                  
+                                   <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Latitude: </label>
+                                    <input type="text" name="Latitude" placeholder="Latitude..." th:maxlength="100" size="100" />
+                                </div>
+                                    <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Longitude </label>
+                                    <input type="text" name="Longitude" placeholder="Longitude..." th:maxlength="100" size="100" />
+                                </div>
+                                 
+                                <td><br/></td>
+                                <div class="ui field">
+                                    <label> Email: </label>
+                                    <input type="email" name="email" placeholder="Digite seu E-mail..." th:maxlength="50" size="50" />
+                                </div>
+                                <td><br/></td>
+
+                                <div class="ui field">
+                                    <button class="ui button" type="submit">Salve</button>
+                                    <input type="reset" value="Clear" />
+                                </div>
+                            </form>
+
+                            <td><br/></td>
+                            <div class="ui field">                                     
+                                <label>Click on the Register to Edit or Delete... </label>
+                            </div>
+                            <td><br/></td>
+
+                            <div class="card" th:each="entidade : ${use}">    
+                                <div class="content">
+                                    <a th:href="@{/home/{id}(id=${entidade.Id})}" >
+                                        <label>--Id:-</label><span th:text="${entidade.Id}  "></span>
+                                        <label>--Sreet Name:-</label><span th:text="${entidade.StreetName}  ">  </span>   
+                                        <label>--Nunber:-</label><span th:text="${entidade.number}  ">  </span>   
+                                        <label>--Complement:-</label><span th:text="${entidade.complement}  ">  </span>   
+                                        <label>--Neighbourhood:-</label><span th:text="${entidade.neighbourhood}  ">  </span>   
+                                        <label>--City:-</label><span th:text="${entidade.city}  ">  </span>   
+                                        <label>--State:-</label><span th:text="${entidade.state}  ">  </span>   
+                                        <label>--Country:-</label><span th:text="${entidade.country}  ">  </span>   
+                                        <label>--ZipCode:-</label><span th:text="${entidade.zipCode}  ">  </span>   
+                                        <label>--Latitude:-</label><span th:text="${entidade.latitude}  ">  </span>   
+                                        <label>--Longitude:-</label><span th:text="${entidade.longitude}  ">  </span>    
+                                        <label>--Email:-</label><span th:text="${entidade.Email}  "></span>                                     
+                                        <label>--Creation Date:- </label><td th:text="${#dates.format(entidade.creationDate, 'dd-MM-yyyy')}"></td>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </body>
+</html>

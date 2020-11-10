@@ -1,0 +1,111 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div class="pusher">
+            <div class="ui inverted vertical masthead segment">
+
+                <div class="ui container">
+                    <div class="ui large secondary inverted pointing menu">
+
+                        <div class="right item" >
+                            <div class="ui transparent inverted icon input" style="margin: 10px">
+                                <label> CHANGE OR EXCLUSION OF REGISTRATION STOOM </label>
+                            </div>
+                            <td>  <br/></td>
+
+                            
+                            <form class="form-horizontal" th:object="${use}" th:action="@{/update}" th:method="GET" style="margin: 10px">
+                                <div class="ui field">
+                                    <label>Id:-</label><label  th:text="${use.id}" name="${use.id}" /> 
+                                    <input type="hidden" name="${use.id}" th:field="${use.id}"  />
+                                </div> 
+
+                                <div class="ui field">
+                                    <label> Sreet Name: </label>
+                                    <input type="text"  name="${use.StreetName}" th:field="${use.StreetName}" th:maxlength="100" size="100" required="true"/>      
+                                </div> 
+                                <td><br/> </td>
+                                                 
+                                 <div class="ui field">
+                                    <label> Nunber: </label>
+                                    <input type="number"  name="${use.number}" th:field="${use.number}" th:maxlength="100" size="100" required="true"/>      
+                                </div> 
+                                <td><br/> </td>
+                                                                                        
+                                 <div class="ui field">
+                                    <label> Complement </label>
+                                    <input type="text"  name="${use.complement}" th:field="${use.complement}" th:maxlength="100" size="100"/> 
+                                </div>  
+                                       
+                                <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Neighbourhood: </label> 
+                                    <input type="text"  name="${use.neighbourhood}" th:field="${use.neighbourhood}" th:maxlength="100" size="100" required="true"/>    
+                                </div>
+                                
+                                 <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> City: </label>
+                                    <input type="text"  name="${use.City}" th:field="${use.City}" th:maxlength="100" size="100" required="true"/>    
+                                </div>
+                                 
+                                 <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> State: </label>
+                                    <input type="text"  name="${use.State}" th:field="${use.State}" th:maxlength="100" size="100" required="true"/> 
+                                </div>
+                                 
+                                 <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Country: </label>
+                                    <input type="text"  name="${use.Country}" th:field="${use.Country}" th:maxlength="100" size="100" required="true"/> 
+                                </div>
+                                 
+                                  <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> ZipCode: </label>
+                                    <input type="text"  name="${use.ZipCode}" th:field="${use.ZipCode}" th:maxlength="100" size="100" required="true"/> 
+                                </div>
+                                  
+                                   <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Latitude: </label>
+                                    <input type="text"  name="${use.Latitude}" th:field="${use.Latitude}" th:maxlength="100" size="100" /> 
+                                </div>
+                                    <td><br/> </td>                                
+                                 <div class="ui field">
+                                    <label> Longitude </label>
+                                    <input type="text"  name="${use.Longitude}" th:field="${use.Longitude}" th:maxlength="100" size="100" /> 
+                                </div>
+                                    
+                                <td><br/></td>       
+                                <div class="ui field">
+                                    <label> Email:- </label>
+                                    <input type="email" name="${use.email}" th:field="${use.Email}" th:maxlength="50" size="50" />
+                                </div>
+                                <td><br/> </td>
+
+                                <div class="ui field">                               
+                                    <label> Date of last change or creation:- </label>
+
+                                    <td th:text="${#dates.format(use.creationDate, 'dd-MM-yyyy')}" ></td>
+                                </div>
+                                <td><br/></td>           
+
+                                <button class="ui button" type="submit">Save Change</button>    
+                            </form>
+                        </div>
+                        
+                        <form class="form-horizontal" method="GET" th:object="${use}" th:action="@{/excluir/{id}(id=${use.Id})}" style="margin: 10px">
+                            <input type="hidden" name="use.id" value="delete" />
+                            <button type="submit" name="submit" value="value" class="link-button">Delete</button>
+                        </form> 
+
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </body>
+</html>

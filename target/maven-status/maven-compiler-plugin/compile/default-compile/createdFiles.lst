@@ -1,0 +1,5 @@
+br\com\stoom\controller\UseController.class
+br\com\stoom\service\UseService.class
+br\com\stoom\repository\UseRepository.class
+br\com\stoom\StoomApplication.class
+br\com\stoom\entity\Use.class
